@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rosion.xthcb">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.XétHọcBạ">
+        <activity android:name=".activity_mon">
+
+        </activity>
+        <activity
+            android:name=".hai"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".mothai"
+            android:screenOrientation="portrait"
+             />
+        <activity
+            android:name=".muoimothai"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bahocki"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sauhocki"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ketqua"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".namhocki"
+            android:screenOrientation="portrait" /> <!-- android:windowSoftInputMode="adjustPan" android:parentActivityName=".MainActivity"/> android:windowSoftInputMode="adjustPan"-->
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.XétHọcBạ.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/app_id" />
+    </application>
+
+</manifest>

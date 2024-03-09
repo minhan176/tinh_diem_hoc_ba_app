@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:shape="rectangle"
+    android:background="@color/black"
+    android:foreground="?attr/selectableItemBackground"
+    android:elevation= "20dp"
+    android:shadowRadius="10"
+    >
+    <!-- you can use any color you want I used here gray color-->
+
+    <corners android:radius="20dp"
+
+        />
+    <shadow android:radius="50dp"/>
+</shape>

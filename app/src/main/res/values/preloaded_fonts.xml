@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/archivo_black</item>
+        <item>@font/archivo_narrow_bold</item>
+        <item>@font/fira_sans_condensed_bold</item>
+        <item>@font/pragati_narrow_bold</item>
+        <item>@font/source_sans_pro_bold</item>
+    </array>
+</resources>
