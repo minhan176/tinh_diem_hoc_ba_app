@@ -458,7 +458,7 @@
                             android:background="@color/white"
                             android:fontFamily="sans-serif"
                             android:gravity="center"
-                            android:text="GDCD"
+                            android:text="GDKTPL"
                             android:textColor="#000"
                             android:textSize="18dp" />
 

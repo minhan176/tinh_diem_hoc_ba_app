@@ -19,20 +19,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.rosion.xthcb.MyData;
 import com.rosion.xthcb.R;
 
-import com.rosion.xthcb.activity_mon;
-import com.rosion.xthcb.bahocki;
 import com.rosion.xthcb.hai;
 import com.rosion.xthcb.ketqua;
-import com.rosion.xthcb.mothai;
-import com.rosion.xthcb.muoimothai;
-import com.rosion.xthcb.namhocki;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -67,7 +58,6 @@ public class AdapHai extends RecyclerView.Adapter<AdapHai.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private InterstitialAd mInterstitialAd;
         EditText editText5, editText11, editText17, editText23, editText29, editText35,
                 editText41, editText47, editText53, editText55;
         Button butnam, butnam2, xoahet, savedata;
@@ -85,6 +75,8 @@ public class AdapHai extends RecyclerView.Adapter<AdapHai.ViewHolder> {
         public static final String TEXT53 = "text";
         private String text5,text11,text17,text23,
                 text29,text35,text41,text47,text53;
+
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

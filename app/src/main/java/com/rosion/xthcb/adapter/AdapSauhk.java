@@ -19,13 +19,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.rosion.xthcb.MyData;
 import com.rosion.xthcb.R;
 
@@ -66,7 +59,6 @@ public class AdapSauhk extends RecyclerView.Adapter<AdapSauhk.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private InterstitialAd mInterstitialAd;
         EditText editText1, editText2, editText3, editText4, editText5, editText6, editText7, editText8, editText9, editText10, editText11, editText12, editText13, editText14, editText15, editText16, editText17, editText18, editText19,
                 editText20, editText21, editText22, editText23, editText24, editText25, editText26, editText27, editText28, editText29, editText30, editText31, editText32, editText33, editText34, editText35,
                 editText36, editText37, editText38,
@@ -133,6 +125,7 @@ public class AdapSauhk extends RecyclerView.Adapter<AdapSauhk.ViewHolder> {
         public static final String TEXT54 = "text";
         private String text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13, text14, text15, text16, text17, text18, text19, text20, text21, text22, text23, text24, text25, text26, text27,
                 text28, text29, text30, text31, text32, text33, text34, text35, text36, text37, text38, text39, text40, text41, text42, text43, text44, text45, text46, text47, text48, text49, text50, text51, text52, text53, text54;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

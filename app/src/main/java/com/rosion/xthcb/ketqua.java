@@ -2,11 +2,13 @@ package com.rosion.xthcb;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActionBar;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,7 +20,11 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -37,8 +43,13 @@ public class ketqua extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ketqua);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.layout_ketqua);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+            getSupportActionBar().setCustomView(R.layout.layout_ketqua);
+        } else {
+            getSupportActionBar().hide();
+            CustomBackground.setDecorBackground(this);
+        }
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -51,18 +62,35 @@ public class ketqua extends AppCompatActivity {
         AdapterKq adapterKq = new AdapterKq(myData, ketqua.this);
         recyclerView.setAdapter(adapterKq);
 
-        MobileAds.initialize(this,
-                getString(R.string.app_id));
+        AdRequest adRequest = new AdRequest.Builder().build();
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                // Load the next interstitial.
-            }
-        });
+        InterstitialAd.load(this,this.getString(R.string.interstitial_id), adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        mInterstitialAd = interstitialAd;
+                        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+
+                            @Override
+                            public void onAdDismissedFullScreenContent() {
+                                mInterstitialAd = null;
+                            }
+
+                            @Override
+                            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                mInterstitialAd = null;
+                            }
+
+                        });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        mInterstitialAd = null;
+                    }
+                });
+
+
 
         adContainerView = findViewById(R.id.id_FrameLayout);
         adContainerView.setVisibility(View.GONE);
@@ -108,8 +136,6 @@ public class ketqua extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
+        if (mInterstitialAd != null) mInterstitialAd.show(this);
     }
 }

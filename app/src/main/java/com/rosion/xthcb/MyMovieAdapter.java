@@ -1,5 +1,6 @@
 package com.rosion.xthcb;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,7 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.ads.MobileAds;
 
 public class MyMovieAdapter extends RecyclerView.Adapter<MyMovieAdapter.ViewHolder> {
@@ -61,6 +66,52 @@ public class MyMovieAdapter extends RecyclerView.Adapter<MyMovieAdapter.ViewHold
         int id_interstitial = 0;
         private InterstitialAd mInterstitialAd;
 
+        private void createIntersitialAd(){
+            AdRequest adRequest = new AdRequest.Builder().build();
+            loadInterstitialAd(adRequest);
+        }
+
+        private void loadInterstitialAd(AdRequest adRequest) {
+            InterstitialAd.load(context,context.getString(R.string.interstitial_id), adRequest,
+                    new InterstitialAdLoadCallback() {
+                        @Override
+                        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                            mInterstitialAd = interstitialAd;
+                            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+
+                                @Override
+                                public void onAdDismissedFullScreenContent() {
+                                    createIntersitialAd();
+                                    if( id_interstitial == 2) {
+                                        Intent i = new Intent(context, bahocki.class);
+                                        context.startActivity(i);
+                                    }
+                                    if( id_interstitial == 5) {
+                                        Intent i = new Intent(context, mothai.class);
+                                        context.startActivity(i);
+                                    }
+                                    if( id_interstitial == 6) {
+                                        Intent i = new Intent(context, muoimothai.class);
+                                        context.startActivity(i);
+                                    }
+                                }
+
+                                @Override
+                                public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                    mInterstitialAd = null;
+                                }
+
+                            });
+
+                        }
+
+                        @Override
+                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                            mInterstitialAd = null;
+                        }
+                    });
+        };
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.textName2);
@@ -72,31 +123,7 @@ public class MyMovieAdapter extends RecyclerView.Adapter<MyMovieAdapter.ViewHold
             button4 = itemView.findViewById(R.id.button4);
             button5 = itemView.findViewById(R.id.button5);
 
-            MobileAds.initialize(context,
-                    "ca-app-pub-9002559574859995~9859723704");
-
-            mInterstitialAd = new InterstitialAd(context);
-            mInterstitialAd.setAdUnitId("ca-app-pub-9002559574859995/8527147460");
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            mInterstitialAd.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    // Load the next interstitial.
-                    if( id_interstitial == 2) {
-                        Intent i = new Intent(context, bahocki.class);
-                        context.startActivity(i);
-                    }
-                    if( id_interstitial == 5) {
-                        Intent i = new Intent(context, mothai.class);
-                        context.startActivity(i);
-                    }
-                    if( id_interstitial == 6) {
-                        Intent i = new Intent(context, muoimothai.class);
-                        context.startActivity(i);
-                    }
-                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                }
-            });
+            createIntersitialAd();
 
             itemView.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -109,9 +136,7 @@ public class MyMovieAdapter extends RecyclerView.Adapter<MyMovieAdapter.ViewHold
                 @Override
                 public void onClick(View v) {
                     id_interstitial=2;
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
-                    } else {
+                    if (mInterstitialAd != null) {mInterstitialAd.show((Activity) context);} else {
                         Intent i = new Intent(v.getContext(), bahocki.class);
                         v.getContext().startActivity(i);
                     }
@@ -137,8 +162,8 @@ public class MyMovieAdapter extends RecyclerView.Adapter<MyMovieAdapter.ViewHold
                 @Override
                 public void onClick(View v) {
                     id_interstitial=5;
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
+                    if (mInterstitialAd != null) {
+                        mInterstitialAd.show((Activity) context);
                     } else {
                         Intent i = new Intent(v.getContext(), mothai.class);
                         v.getContext().startActivity(i);
@@ -149,8 +174,8 @@ public class MyMovieAdapter extends RecyclerView.Adapter<MyMovieAdapter.ViewHold
                 @Override
                 public void onClick(View v) {
                     id_interstitial=6;
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
+                    if (mInterstitialAd != null) {
+                        mInterstitialAd.show((Activity) context);
                     } else {
                         Intent i = new Intent(v.getContext(), muoimothai.class);
                         v.getContext().startActivity(i);

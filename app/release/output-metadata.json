@@ -1,18 +1,21 @@
 {
-  "version": 2,
+  "version": 3,
   "artifactType": {
     "type": "APK",
     "kind": "Directory"
   },
   "applicationId": "com.rosion.xthcb",
-  "variantName": "processReleaseResources",
+  "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 1,
-      "versionName": "1.0",
+      "attributes": [],
+      "versionCode": 10,
+      "versionName": "11.1",
       "outputFile": "app-release.apk"
     }
-  ]
+  ],
+  "elementType": "File",
+  "minSdkVersionForDexing": 21
 }

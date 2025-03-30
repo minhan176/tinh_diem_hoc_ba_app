@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActionBar;
+import android.os.Build;
 import android.os.Bundle;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -22,9 +23,15 @@ public class namhocki extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_namhocki);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.layout_namhk);
-//      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+            getSupportActionBar().setCustomView(R.layout.layout_namhk);
+            //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } else {
+            getSupportActionBar().hide();
+            CustomBackground.setDecorBackground(this);
+        }
+
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override

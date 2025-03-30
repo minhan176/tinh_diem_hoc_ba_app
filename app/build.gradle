@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 35
+    namespace "com.rosion.xthcb"
 
     defaultConfig {
         applicationId "com.rosion.xthcb"
-        minSdkVersion 19
-        targetSdkVersion 30
-        versionCode 5
-        versionName "6.1"
+        minSdkVersion 21
+        targetSdkVersion 35
+        versionCode 11
+        versionName "12.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,5 +45,5 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.google.android.gms:play-services-ads:19.5.0'
+    implementation 'com.google.android.gms:play-services-ads:23.6.0'
 }

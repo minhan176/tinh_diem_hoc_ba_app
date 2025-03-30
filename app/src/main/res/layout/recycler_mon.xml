@@ -337,7 +337,7 @@
                             android:layout_marginBottom="1dp"
                             android:background="@color/white"
                             android:gravity="center"
-                            android:text="GDCD"
+                            android:text="GDKTPL"
                             android:textColor="@color/black"
                             android:textSize="20dp" />
 

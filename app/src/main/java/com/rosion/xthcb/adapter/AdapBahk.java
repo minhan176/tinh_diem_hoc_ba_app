@@ -1,5 +1,6 @@
 package com.rosion.xthcb.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,16 +20,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.rosion.xthcb.MyData;
 import com.rosion.xthcb.R;
 
 import com.rosion.xthcb.activity_mon;
 import com.rosion.xthcb.bahocki;
 import com.rosion.xthcb.ketqua;
+import com.rosion.xthcb.mothai;
+import com.rosion.xthcb.muoimothai;
 import com.rosion.xthcb.namhocki;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -83,6 +90,770 @@ public class AdapBahk extends RecyclerView.Adapter<AdapBahk.ViewHolder> {
         public static final String TEXT51 = "text";public static final String TEXT52 = "text";public static final String TEXT53 = "text";
         private String text3,text4,text5,text9,text10,text11,text15,text16,text17,text21,text22,text23,text27,
                 text28,text29,text33,text34,text35,text39,text40,text41,text45,text46,text47,text51,text52,text53;
+
+        private void createIntersitialAd(){
+            AdRequest adRequest = new AdRequest.Builder().build();
+            loadInterstitialAd(adRequest);
+        }
+
+        private void loadInterstitialAd(AdRequest adRequest) {
+            InterstitialAd.load(context,context.getString(R.string.interstitial_id), adRequest,
+                    new InterstitialAdLoadCallback() {
+                        @Override
+                        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                            mInterstitialAd = interstitialAd;
+                            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+
+                                @Override
+                                public void onAdDismissedFullScreenContent() {
+                                    createIntersitialAd();
+                                    if (editText3.getText().toString().length() == 0) {
+                                        editText3.setText("11");
+                                    }
+                                    if (editText4.getText().toString().length() == 0) {
+                                        editText4.setText("11");
+                                    }
+                                    if (editText5.getText().toString().length() == 0) {
+                                        editText5.setText("11");
+                                    }
+                                    if (editText9.getText().toString().length() == 0) {
+                                        editText9.setText("11");
+                                    }
+                                    if (editText10.getText().toString().length() == 0) {
+                                        editText10.setText("11");
+                                    }
+                                    if (editText11.getText().toString().length() == 0) {
+                                        editText11.setText("11");
+                                    }
+                                    if (editText15.getText().toString().length() == 0) {
+                                        editText15.setText("11");
+                                    }
+                                    if (editText16.getText().toString().length() == 0) {
+                                        editText16.setText("11");
+                                    }
+                                    if (editText17.getText().toString().length() == 0) {
+                                        editText17.setText("11");
+                                    }
+                                    if (editText21.getText().toString().length() == 0) {
+                                        editText21.setText("11");
+                                    }
+                                    if (editText22.getText().toString().length() == 0) {
+                                        editText22.setText("11");
+                                    }
+                                    if (editText23.getText().toString().length() == 0) {
+                                        editText23.setText("11");
+                                    }
+                                    if (editText27.getText().toString().length() == 0) {
+                                        editText27.setText("11");
+                                    }
+                                    if (editText28.getText().toString().length() == 0) {
+                                        editText28.setText("11");
+                                    }
+                                    if (editText29.getText().toString().length() == 0) {
+                                        editText29.setText("11");
+                                    }
+                                    if (editText33.getText().toString().length() == 0) {
+                                        editText33.setText("11");
+                                    }
+                                    if (editText34.getText().toString().length() == 0) {
+                                        editText34.setText("11");
+                                    }
+                                    if (editText35.getText().toString().length() == 0) {
+                                        editText35.setText("11");
+                                    }
+                                    if (editText39.getText().toString().length() == 0) {
+                                        editText39.setText("11");
+                                    }
+                                    if (editText40.getText().toString().length() == 0) {
+                                        editText40.setText("11");
+                                    }
+                                    if (editText41.getText().toString().length() == 0) {
+                                        editText41.setText("11");
+                                    }
+                                    if (editText45.getText().toString().length() == 0) {
+                                        editText45.setText("11");
+                                    }
+                                    if (editText46.getText().toString().length() == 0) {
+                                        editText46.setText("11");
+                                    }
+                                    if (editText47.getText().toString().length() == 0) {
+                                        editText47.setText("11");
+                                    }
+                                    if (editText51.getText().toString().length() == 0) {
+                                        editText51.setText("11");
+                                    }
+                                    if (editText52.getText().toString().length() == 0) {
+                                        editText52.setText("11");
+                                    }
+                                    if (editText53.getText().toString().length() == 0) {
+                                        editText53.setText("11");
+                                    }
+
+                                    if (editText3.getText().toString().length() == 1 && editText3.getText().toString().contains(".")) {
+                                        editText3.setText("12");
+                                    }
+                                    if (editText4.getText().toString().length() == 1 && editText4.getText().toString().contains(".")) {
+                                        editText4.setText("12");
+                                    }
+                                    if (editText5.getText().toString().length() == 1 && editText5.getText().toString().contains(".")) {
+                                        editText5.setText("12");
+                                    }
+                                    if (editText9.getText().toString().length() == 1 && editText9.getText().toString().contains(".")) {
+                                        editText9.setText("12");
+                                    }
+                                    if (editText10.getText().toString().length() == 1 && editText10.getText().toString().contains(".")) {
+                                        editText10.setText("12");
+                                    }
+                                    if (editText11.getText().toString().length() == 1 && editText11.getText().toString().contains(".")) {
+                                        editText11.setText("12");
+                                    }
+                                    if (editText15.getText().toString().length() == 1 && editText15.getText().toString().contains(".")) {
+                                        editText15.setText("12");
+                                    }
+                                    if (editText16.getText().toString().length() == 1 && editText16.getText().toString().contains(".")) {
+                                        editText16.setText("12");
+                                    }
+                                    if (editText17.getText().toString().length() == 1 && editText17.getText().toString().contains(".")) {
+                                        editText17.setText("12");
+                                    }
+                                    if (editText21.getText().toString().length() == 1 && editText21.getText().toString().contains(".")) {
+                                        editText21.setText("12");
+                                    }
+                                    if (editText22.getText().toString().length() == 1 && editText22.getText().toString().contains(".")) {
+                                        editText22.setText("12");
+                                    }
+                                    if (editText23.getText().toString().length() == 1 && editText23.getText().toString().contains(".")) {
+                                        editText23.setText("12");
+                                    }
+                                    if (editText27.getText().toString().length() == 1 && editText27.getText().toString().contains(".")) {
+                                        editText27.setText("12");
+                                    }
+                                    if (editText28.getText().toString().length() == 1 && editText28.getText().toString().contains(".")) {
+                                        editText28.setText("12");
+                                    }
+                                    if (editText29.getText().toString().length() == 1 && editText29.getText().toString().contains(".")) {
+                                        editText29.setText("12");
+                                    }
+                                    if (editText33.getText().toString().length() == 1 && editText33.getText().toString().contains(".")) {
+                                        editText33.setText("12");
+                                    }
+                                    if (editText34.getText().toString().length() == 1 && editText34.getText().toString().contains(".")) {
+                                        editText34.setText("12");
+                                    }
+                                    if (editText35.getText().toString().length() == 1 && editText35.getText().toString().contains(".")) {
+                                        editText35.setText("12");
+                                    }
+                                    if (editText39.getText().toString().length() == 1 && editText39.getText().toString().contains(".")) {
+                                        editText39.setText("12");
+                                    }
+                                    if (editText40.getText().toString().length() == 1 && editText40.getText().toString().contains(".")) {
+                                        editText40.setText("12");
+                                    }
+                                    if (editText41.getText().toString().length() == 1 && editText41.getText().toString().contains(".")) {
+                                        editText41.setText("12");
+                                    }
+                                    if (editText45.getText().toString().length() == 1 && editText45.getText().toString().contains(".")) {
+                                        editText45.setText("12");
+                                    }
+                                    if (editText46.getText().toString().length() == 1 && editText46.getText().toString().contains(".")) {
+                                        editText46.setText("12");
+                                    }
+                                    if (editText47.getText().toString().length() == 1 && editText47.getText().toString().contains(".")) {
+                                        editText47.setText("12");
+                                    }
+                                    if (editText51.getText().toString().length() == 1 && editText51.getText().toString().contains(".")) {
+                                        editText51.setText("12");
+                                    }
+                                    if (editText52.getText().toString().length() == 1 && editText52.getText().toString().contains(".")) {
+                                        editText52.setText("12");
+                                    }
+                                    if (editText53.getText().toString().length() == 1 && editText53.getText().toString().contains(".")) {
+                                        editText53.setText("12");
+                                    }
+
+
+                                    float no3 = Float.valueOf(editText3.getText().toString());
+                                    float no4 = Float.valueOf(editText4.getText().toString());
+                                    float no5 = Float.valueOf(editText5.getText().toString());
+
+
+                                    float no9 = Float.valueOf(editText9.getText().toString());
+                                    float no10 = Float.valueOf(editText10.getText().toString());
+                                    float no11 = Float.valueOf(editText11.getText().toString());
+
+
+                                    float no15 = Float.valueOf(editText15.getText().toString());
+                                    float no16 = Float.valueOf(editText16.getText().toString());
+                                    float no17 = Float.valueOf(editText17.getText().toString());
+
+
+                                    float no21 = Float.valueOf(editText21.getText().toString());
+                                    float no22 = Float.valueOf(editText22.getText().toString());
+                                    float no23 = Float.valueOf(editText23.getText().toString());
+
+
+                                    float no27 = Float.valueOf(editText27.getText().toString());
+                                    float no28 = Float.valueOf(editText28.getText().toString());
+                                    float no29 = Float.valueOf(editText29.getText().toString());
+
+
+                                    float no33 = Float.valueOf(editText33.getText().toString());
+                                    float no34 = Float.valueOf(editText34.getText().toString());
+                                    float no35 = Float.valueOf(editText35.getText().toString());
+
+
+                                    float no39 = Float.valueOf(editText39.getText().toString());
+                                    float no40 = Float.valueOf(editText40.getText().toString());
+                                    float no41 = Float.valueOf(editText41.getText().toString());
+
+
+                                    float no45 = Float.valueOf(editText45.getText().toString());
+                                    float no46 = Float.valueOf(editText46.getText().toString());
+                                    float no47 = Float.valueOf(editText47.getText().toString());
+
+
+                                    float no51 = Float.valueOf(editText51.getText().toString());
+                                    float no52 = Float.valueOf(editText52.getText().toString());
+                                    float no53 = Float.valueOf(editText53.getText().toString());
+
+
+                                    if (no3 == 11) {
+                                        editText3.setText("");
+                                    }
+                                    if (no4 == 11) {
+                                        editText4.setText("");
+                                    }
+                                    if (no5 == 11) {
+                                        editText5.setText("");
+                                    }
+                                    if (no9 == 11) {
+                                        editText9.setText("");
+                                    }
+                                    if (no10 == 11) {
+                                        editText10.setText("");
+                                    }
+                                    if (no11 == 11) {
+                                        editText11.setText("");
+                                    }
+                                    if (no15 == 11) {
+                                        editText15.setText("");
+                                    }
+                                    if (no16 == 11) {
+                                        editText16.setText("");
+                                    }
+                                    if (no17 == 11) {
+                                        editText17.setText("");
+                                    }
+                                    if (no21 == 11) {
+                                        editText21.setText("");
+                                    }
+                                    if (no22 == 11) {
+                                        editText22.setText("");
+                                    }
+                                    if (no23 == 11) {
+                                        editText23.setText("");
+                                    }
+                                    if (no27 == 11) {
+                                        editText27.setText("");
+                                    }
+                                    if (no28 == 11) {
+                                        editText28.setText("");
+                                    }
+                                    if (no29 == 11) {
+                                        editText29.setText("");
+                                    }
+                                    if (no33 == 11) {
+                                        editText33.setText("");
+                                    }
+                                    if (no34 == 11) {
+                                        editText34.setText("");
+                                    }
+                                    if (no35 == 11) {
+                                        editText35.setText("");
+                                    }
+                                    if (no39 == 11) {
+                                        editText39.setText("");
+                                    }
+                                    if (no40 == 11) {
+                                        editText40.setText("");
+                                    }
+                                    if (no41 == 11) {
+                                        editText41.setText("");
+                                    }
+                                    if (no45 == 11) {
+                                        editText45.setText("");
+                                    }
+                                    if (no46 == 11) {
+                                        editText46.setText("");
+                                    }
+                                    if (no47 == 11) {
+                                        editText47.setText("");
+                                    }
+                                    if (no51 == 11) {
+                                        editText51.setText("");
+                                    }
+                                    if (no52 == 11) {
+                                        editText52.setText("");
+                                    }
+                                    if (no53 == 11) {
+                                        editText53.setText("");
+                                    }
+
+                                    if (no3 == 12) {
+                                        editText3.setText(".");
+                                    }
+                                    if (no4 == 12) {
+                                        editText4.setText(".");
+                                    }
+                                    if (no5 == 12) {
+                                        editText5.setText(".");
+                                    }
+                                    if (no9 == 12) {
+                                        editText9.setText(".");
+                                    }
+                                    if (no10 == 12) {
+                                        editText10.setText(".");
+                                    }
+                                    if (no11 == 12) {
+                                        editText11.setText(".");
+                                    }
+                                    if (no15 == 12) {
+                                        editText15.setText(".");
+                                    }
+                                    if (no16 == 12) {
+                                        editText16.setText(".");
+                                    }
+                                    if (no17 == 12) {
+                                        editText17.setText(".");
+                                    }
+                                    if (no21 == 12) {
+                                        editText21.setText(".");
+                                    }
+                                    if (no22 == 12) {
+                                        editText22.setText(".");
+                                    }
+                                    if (no23 == 12) {
+                                        editText23.setText(".");
+                                    }
+                                    if (no27 == 12) {
+                                        editText27.setText(".");
+                                    }
+                                    if (no28 == 12) {
+                                        editText28.setText(".");
+                                    }
+                                    if (no29 == 12) {
+                                        editText29.setText(".");
+                                    }
+                                    if (no33 == 12) {
+                                        editText33.setText(".");
+                                    }
+                                    if (no34 == 12) {
+                                        editText34.setText(".");
+                                    }
+                                    if (no35 == 12) {
+                                        editText35.setText(".");
+                                    }
+                                    if (no39 == 12) {
+                                        editText39.setText(".");
+                                    }
+                                    if (no40 == 12) {
+                                        editText40.setText(".");
+                                    }
+                                    if (no41 == 12) {
+                                        editText41.setText(".");
+                                    }
+                                    if (no45 == 12) {
+                                        editText45.setText(".");
+                                    }
+                                    if (no46 == 12) {
+                                        editText46.setText(".");
+                                    }
+                                    if (no47 == 12) {
+                                        editText47.setText(".");
+                                    }
+                                    if (no51 == 12) {
+                                        editText51.setText(".");
+                                    }
+                                    if (no52 == 12) {
+                                        editText52.setText(".");
+                                    }
+                                    if (no53 == 12) {
+                                        editText53.setText(".");
+                                    }
+
+                                    float a0t = (no3 + no4 + no5) / 3 * 100;
+                                    int roa0t = Math.round(a0t);
+                                    Float a0t2 = Float.valueOf(roa0t) / 100;
+
+                                    float a0l = (no9 + no10 + no11) / 3 * 100;
+                                    int roa0l = Math.round(a0l);
+                                    Float a0l2 = Float.valueOf(roa0l) / 100;
+
+                                    float a0h = (no15 + no16 + no17) / 3 * 100;
+                                    int roa0h = Math.round(a0h);
+                                    Float a0h2 = Float.valueOf(roa0h) / 100;
+
+                                    float a1a = (no21 + no22 + no23) / 3 * 100;
+                                    int roa1a = Math.round(a1a);
+                                    Float a1a2 = Float.valueOf(roa1a) / 100;
+
+                                    float c0v = (no27 + no28 + no29) / 3 * 100;
+                                    int roc0v = Math.round(c0v);
+                                    Float c0v2 = Float.valueOf(roc0v) / 100;
+
+                                    float b0s = (no33 + no34 + no35) / 3 * 100;
+                                    int rob0s = Math.round(b0s);
+                                    Float b0s2 = Float.valueOf(rob0s) / 100;
+
+                                    float c0su = (no39 + no40 + no41) / 3 * 100;
+                                    int roc0su = Math.round(c0su);
+                                    Float c0su2 = Float.valueOf(roc0su) / 100;
+
+                                    float c0d = (no45 + no46 + no47) / 3 * 100;
+                                    int roc0d = Math.round(c0d);
+                                    Float c0d2 = Float.valueOf(roc0d) / 100;
+
+                                    float c19gd = (no51 + no52 + no53) / 3 * 100;
+                                    int roc19gd = Math.round(c19gd);
+                                    Float c19gd2 = Float.valueOf(roc19gd) / 100;
+
+                                    float a02 = (a0t2 + a0l2 + a0h2) * 100;
+                                    int a01 = Math.round(a02);
+                                    Float a0 = Float.valueOf(a01) / 100;
+
+                                    float a12 = (a0t2 + a0l2 + a1a2) * 100;
+                                    int a11 = Math.round(a12);
+                                    Float a1 = Float.valueOf(a11) / 100;
+
+                                    float b02 = (b0s2 + a0t2 + a0h2) * 100;
+                                    int b01 = Math.round(b02);
+                                    Float b0 = Float.valueOf(b01) / 100;
+
+                                    float c02 = (c0v2 + c0su2 + c0d2) * 100;
+                                    int c01 = Math.round(c02);
+                                    Float c0 = Float.valueOf(c01) / 100;
+
+                                    float c12 = (a0t2 + a0l2 + c0v2) * 100;
+                                    int c11 = Math.round(c12);
+                                    Float c1 = Float.valueOf(c11) / 100;
+
+                                    float d12 = (c0v2 + a0t2 + a1a2) * 100;
+                                    int d11 = Math.round(d12);
+                                    Float d1 = Float.valueOf(d11) / 100;
+
+                                    float d72 = (a0h2 + a0t2 + a1a2) * 100;
+                                    int d71 = Math.round(d72);
+                                    Float d7 = Float.valueOf(d71) / 100;
+
+                                    float d142 = (c0v2 + c0su2 + a1a2) * 100;
+                                    int d141 = Math.round(d142);
+                                    Float d14 = Float.valueOf(d141) / 100;
+
+                                    float d152 = (c0v2 + c0d2 + a1a2) * 100;
+                                    int d151 = Math.round(d152);
+                                    Float d15 = Float.valueOf(d151) / 100;
+
+                                    float b82 = (b0s2 + a0t2 + a1a2) * 100;
+                                    int b81  =Math.round(b82);
+                                    Float b8 = Float.valueOf(b81) / 100;
+
+                                    float c192 = (c0v2 + c0su2 + c19gd2) * 100;
+                                    int c191 = Math.round(c192);
+                                    Float c19 = Float.valueOf(c191) / 100;
+
+                                    float a =3;
+
+                                    if (((editText3.getText().toString().length() == 1 && editText3.getText().toString().contains(".") || editText3.getText().toString().length() == 0 || no3 > 10) || (editText4.getText().toString().length() == 1 && editText4.getText().toString().contains(".") || editText4.getText().toString().length() == 0 || no4 > 10)
+                                            || (editText5.getText().toString().length() == 1 && editText5.getText().toString().contains(".") || editText5.getText().toString().length() == 0 || no5 > 10))
+                                            && (editText3.getText().toString().length() > 0 || editText4.getText().toString().length() > 0 || editText5.getText().toString().length() > 0)) {
+
+                                        if (editText3.getText().toString().length() == 1 && editText3.getText().toString().contains(".") || editText3.getText().toString().length() == 0 || no3 > 10) {
+                                            editText3.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText4.getText().toString().length() == 1 && editText4.getText().toString().contains(".") || editText4.getText().toString().length() == 0 || no4 > 10) {
+                                            editText4.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText5.getText().toString().length() == 1 && editText5.getText().toString().contains(".") || editText5.getText().toString().length() == 0 || no5 > 10) {
+                                            editText5.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if (((editText9.getText().toString().length() == 1 && editText9.getText().toString().contains(".") || editText9.getText().toString().length() == 0 || no9 > 10) || (editText10.getText().toString().length() == 1 && editText10.getText().toString().contains(".") || editText10.getText().toString().length() == 0 || no10 > 10)
+                                            || (editText11.getText().toString().length() == 1 && editText11.getText().toString().contains(".") || editText11.getText().toString().length() == 0 || no11 > 10))
+                                            && (editText9.getText().toString().length() > 0 || editText10.getText().toString().length() > 0 || editText11.getText().toString().length() > 0)) {
+
+                                        if (editText9.getText().toString().length() == 1 && editText9.getText().toString().contains(".") || editText9.getText().toString().length() == 0 || no9 > 10) {
+                                            editText9.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText10.getText().toString().length() == 1 && editText10.getText().toString().contains(".") || editText10.getText().toString().length() == 0 || no10 > 10) {
+                                            editText10.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText11.getText().toString().length() == 1 && editText11.getText().toString().contains(".") || editText11.getText().toString().length() == 0 || no11 > 10) {
+                                            editText11.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if ((
+                                            (editText15.getText().toString().length() == 1 && editText15.getText().toString().contains(".") || editText15.getText().toString().length() == 0 || no15 > 10) || (editText16.getText().toString().length() == 1 && editText16.getText().toString().contains(".") || editText16.getText().toString().length() == 0 || no16 > 10)
+                                                    || (editText17.getText().toString().length() == 1 && editText17.getText().toString().contains(".") || editText17.getText().toString().length() == 0 || no17 > 10))
+                                            && (editText15.getText().toString().length() > 0 || editText16.getText().toString().length() > 0 || editText17.getText().toString().length() > 0)) {
+
+                                        if (editText15.getText().toString().length() == 1 && editText15.getText().toString().contains(".") || editText15.getText().toString().length() == 0 || no15 > 10) {
+                                            editText15.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText16.getText().toString().length() == 1 && editText16.getText().toString().contains(".") || editText16.getText().toString().length() == 0 || no16 > 10) {
+                                            editText16.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText17.getText().toString().length() == 1 && editText17.getText().toString().contains(".") || editText17.getText().toString().length() == 0 || no17 > 10) {
+                                            editText17.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if ((
+                                            (editText21.getText().toString().length() == 1 && editText21.getText().toString().contains(".") || editText21.getText().toString().length() == 0 || no21 > 10) || (editText22.getText().toString().length() == 1 && editText22.getText().toString().contains(".") || editText22.getText().toString().length() == 0 || no22 > 10)
+                                                    || (editText23.getText().toString().length() == 1 && editText23.getText().toString().contains(".") || editText23.getText().toString().length() == 0 || no23 > 10))
+                                            && (editText21.getText().toString().length() > 0 || editText22.getText().toString().length() > 0 || editText23.getText().toString().length() > 0)) {
+
+                                        if (editText21.getText().toString().length() == 1 && editText21.getText().toString().contains(".") || editText21.getText().toString().length() == 0 || no21 > 10) {
+                                            editText21.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText22.getText().toString().length() == 1 && editText22.getText().toString().contains(".") || editText22.getText().toString().length() == 0 || no22 > 10) {
+                                            editText22.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText23.getText().toString().length() == 1 && editText23.getText().toString().contains(".") || editText23.getText().toString().length() == 0 || no23 > 10) {
+                                            editText23.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if ((
+                                            (editText27.getText().toString().length() == 1 && editText27.getText().toString().contains(".") || editText27.getText().toString().length() == 0 || no27 > 10) || (editText28.getText().toString().length() == 1 && editText28.getText().toString().contains(".") || editText28.getText().toString().length() == 0 || no28 > 10)
+                                                    || (editText29.getText().toString().length() == 1 && editText29.getText().toString().contains(".") || editText29.getText().toString().length() == 0 || no29 > 10))
+                                            && (editText27.getText().toString().length() > 0 || editText28.getText().toString().length() > 0 || editText29.getText().toString().length() > 0)) {
+
+                                        if (editText27.getText().toString().length() == 1 && editText27.getText().toString().contains(".") || editText27.getText().toString().length() == 0 || no27 > 10) {
+                                            editText27.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText28.getText().toString().length() == 1 && editText28.getText().toString().contains(".") || editText28.getText().toString().length() == 0 || no28 > 10) {
+                                            editText28.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText29.getText().toString().length() == 1 && editText29.getText().toString().contains(".") || editText29.getText().toString().length() == 0 || no29 > 10) {
+                                            editText29.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if (((editText33.getText().toString().length() == 1 && editText33.getText().toString().contains(".") || editText33.getText().toString().length() == 0 || no33 > 10) || (editText34.getText().toString().length() == 1 && editText34.getText().toString().contains(".") || editText34.getText().toString().length() == 0 || no34 > 10)
+                                            || (editText35.getText().toString().length() == 1 && editText35.getText().toString().contains(".") || editText35.getText().toString().length() == 0 || no35 > 10))
+                                            && (editText33.getText().toString().length() > 0 || editText34.getText().toString().length() > 0 || editText35.getText().toString().length() > 0)) {
+
+                                        if (editText33.getText().toString().length() == 1 && editText33.getText().toString().contains(".") || editText33.getText().toString().length() == 0 || no33 > 10) {
+                                            editText33.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText34.getText().toString().length() == 1 && editText34.getText().toString().contains(".") || editText34.getText().toString().length() == 0 || no34 > 10) {
+                                            editText34.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText35.getText().toString().length() == 1 && editText35.getText().toString().contains(".") || editText35.getText().toString().length() == 0 || no35 > 10) {
+                                            editText35.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if (((editText39.getText().toString().length() == 1 && editText39.getText().toString().contains(".") || editText39.getText().toString().length() == 0 || no39 > 10) || (editText40.getText().toString().length() == 1 && editText40.getText().toString().contains(".") || editText40.getText().toString().length() == 0 || no40 > 10)
+                                            || (editText41.getText().toString().length() == 1 && editText41.getText().toString().contains(".") || editText41.getText().toString().length() == 0 || no41 > 10))
+                                            && (editText39.getText().toString().length() > 0 || editText40.getText().toString().length() > 0 || editText41.getText().toString().length() > 0)) {
+
+                                        if (editText39.getText().toString().length() == 1 && editText39.getText().toString().contains(".") || editText39.getText().toString().length() == 0 || no39 > 10) {
+                                            editText39.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText40.getText().toString().length() == 1 && editText40.getText().toString().contains(".") || editText40.getText().toString().length() == 0 || no40 > 10) {
+                                            editText40.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText41.getText().toString().length() == 1 && editText41.getText().toString().contains(".") || editText41.getText().toString().length() == 0 || no41 > 10) {
+                                            editText41.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if (((editText45.getText().toString().length() == 1 && editText45.getText().toString().contains(".") || editText45.getText().toString().length() == 0 || no45 > 10) || (editText46.getText().toString().length() == 1 && editText46.getText().toString().contains(".") || editText46.getText().toString().length() == 0 || no46 > 10)
+                                            || (editText47.getText().toString().length() == 1 && editText47.getText().toString().contains(".") || editText47.getText().toString().length() == 0 || no47 > 10))
+                                            && (editText45.getText().toString().length() > 0 || editText46.getText().toString().length() > 0 || editText47.getText().toString().length() > 0)) {
+
+                                        if (editText45.getText().toString().length() == 1 && editText45.getText().toString().contains(".") || editText45.getText().toString().length() == 0 || no45 > 10) {
+                                            editText45.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText46.getText().toString().length() == 1 && editText46.getText().toString().contains(".") || editText46.getText().toString().length() == 0 || no46 > 10) {
+                                            editText46.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText47.getText().toString().length() == 1 && editText47.getText().toString().contains(".") || editText47.getText().toString().length() == 0 || no47 > 10) {
+                                            editText47.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if (((editText51.getText().toString().length() == 1 && editText51.getText().toString().contains(".") || editText51.getText().toString().length() == 0 || no51 > 10) || (editText52.getText().toString().length() == 1 && editText52.getText().toString().contains(".") || editText52.getText().toString().length() == 0 || no52 > 10)
+                                            || (editText53.getText().toString().length() == 1 && editText53.getText().toString().contains(".") || editText53.getText().toString().length() == 0 || no53 > 10))
+                                            && (editText51.getText().toString().length() > 0 || editText52.getText().toString().length() > 0 || editText53.getText().toString().length() > 0)) {
+
+                                        if (editText51.getText().toString().length() == 1 && editText51.getText().toString().contains(".") || editText51.getText().toString().length() == 0 || no51 > 10) {
+                                            editText51.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText52.getText().toString().length() == 1 && editText52.getText().toString().contains(".") || editText52.getText().toString().length() == 0 || no52 > 10) {
+                                            editText52.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+                                        if (editText53.getText().toString().length() == 1 && editText53.getText().toString().contains(".") || editText53.getText().toString().length() == 0 || no53 > 10) {
+                                            editText53.setBackgroundResource(R.drawable.edittext_background1);
+                                        }
+
+                                    }
+
+                                    if (((editText3.getText().toString().length() == 0 && editText4.getText().toString().length() == 0 && editText5.getText().toString().length() == 0) || (no3 <= 10 && no4 <= 10 && no5 <= 10))
+                                            && (editText9.getText().toString().length() == 0 && editText10.getText().toString().length() == 0 && editText11.getText().toString().length() == 0) || (no9 <= 10 && no10 <= 10 && no11 <= 10)
+                                            && ((editText15.getText().toString().length() == 0 && editText16.getText().toString().length() == 0 && editText17.getText().toString().length() == 0) || (no15 <= 10 && no16 <= 10 && no17 <= 10))
+                                            && ((editText21.getText().toString().length() == 0 && editText22.getText().toString().length() == 0 && editText23.getText().toString().length() == 0) || (no21 <= 10 && no22 <= 10 && no23 <= 10))
+                                            && ((editText27.getText().toString().length() == 0 && editText28.getText().toString().length() == 0 && editText29.getText().toString().length() == 0) || (no27 <= 10 && no28 <= 10 && no29 <= 10))
+                                            && ((editText33.getText().toString().length() == 0 && editText34.getText().toString().length() == 0 && editText35.getText().toString().length() == 0) || (no33 <= 10 && no34 <= 10 && no35 <= 10))
+                                            && ((editText39.getText().toString().length() == 0 && editText40.getText().toString().length() == 0 && editText41.getText().toString().length() == 0) || (no39 <= 10 && no40 <= 10 && no41 <= 10))
+                                            && ((editText45.getText().toString().length() == 0 && editText46.getText().toString().length() == 0 && editText47.getText().toString().length() == 0) || (no45 <= 10 && no46 <= 10 && no47 <= 10))
+                                            && ((editText51.getText().toString().length() == 0 && editText52.getText().toString().length() == 0 && editText53.getText().toString().length() == 0) || (no51 <= 10 && no52 <= 10 && no53 <= 10))
+
+                                    ) {
+                                        if(n==1) {
+                                            Intent intent = new Intent(context, ketqua.class);
+                                            intent.putExtra("a0", a0);
+                                            intent.putExtra("a1", a1);
+                                            intent.putExtra("b0", b0);
+                                            intent.putExtra("c0", c0);
+                                            intent.putExtra("c1", c1);
+                                            intent.putExtra("d1", d1);
+                                            intent.putExtra("d7", d7);
+                                            intent.putExtra("d15", d15);
+                                            intent.putExtra("d14", d14);
+                                            intent.putExtra("b8", b8);
+                                            intent.putExtra("c19", c19);
+
+                                            intent.putExtra("no3", no3);
+                                            intent.putExtra("no4", no4);
+                                            intent.putExtra("no5", no5);
+
+
+                                            intent.putExtra("no9", no9);
+                                            intent.putExtra("no10", no10);
+                                            intent.putExtra("no11", no11);
+
+
+                                            intent.putExtra("no15", no15);
+                                            intent.putExtra("no16", no16);
+                                            intent.putExtra("no17", no17);
+
+
+                                            intent.putExtra("no21", no21);
+                                            intent.putExtra("no22", no22);
+                                            intent.putExtra("no23", no23);
+
+
+                                            intent.putExtra("no27", no27);
+                                            intent.putExtra("no28", no28);
+                                            intent.putExtra("no29", no29);
+
+
+                                            intent.putExtra("no33", no33);
+                                            intent.putExtra("no34", no34);
+                                            intent.putExtra("no35", no35);
+
+
+                                            intent.putExtra("no39", no39);
+                                            intent.putExtra("no40", no40);
+                                            intent.putExtra("no41", no41);
+
+
+                                            intent.putExtra("no45", no45);
+                                            intent.putExtra("no46", no46);
+                                            intent.putExtra("no47", no47);
+
+                                            intent.putExtra("no51", no51);
+                                            intent.putExtra("no52", no52);
+                                            intent.putExtra("no53", no53);
+                                            context.startActivity(intent);
+                                        }
+                                        if(n==2) {
+                                            Intent intent = new Intent(context, activity_mon.class);
+                                            intent.putExtra("a0", a0t2);
+                                            intent.putExtra("a1", a0l2);
+                                            intent.putExtra("b0", a0h2);
+                                            intent.putExtra("c0", a1a2);
+                                            intent.putExtra("c1", c0v2);
+                                            intent.putExtra("d1", b0s2);
+                                            intent.putExtra("d7", c0su2);
+                                            intent.putExtra("d14", c0d2);
+                                            intent.putExtra("d15", c19gd2);
+                                            intent.putExtra("tieucot",a);
+
+                                            intent.putExtra("no3", no3);
+                                            intent.putExtra("no4", no4);
+                                            intent.putExtra("no5", no5);
+
+
+                                            intent.putExtra("no9", no9);
+                                            intent.putExtra("no10", no10);
+                                            intent.putExtra("no11", no11);
+
+
+                                            intent.putExtra("no15", no15);
+                                            intent.putExtra("no16", no16);
+                                            intent.putExtra("no17", no17);
+
+
+                                            intent.putExtra("no21", no21);
+                                            intent.putExtra("no22", no22);
+                                            intent.putExtra("no23", no23);
+
+
+                                            intent.putExtra("no27", no27);
+                                            intent.putExtra("no28", no28);
+                                            intent.putExtra("no29", no29);
+
+
+                                            intent.putExtra("no33", no33);
+                                            intent.putExtra("no34", no34);
+                                            intent.putExtra("no35", no35);
+
+
+                                            intent.putExtra("no39", no39);
+                                            intent.putExtra("no40", no40);
+                                            intent.putExtra("no41", no41);
+
+
+                                            intent.putExtra("no45", no45);
+                                            intent.putExtra("no46", no46);
+                                            intent.putExtra("no47", no47);
+
+                                            intent.putExtra("no51", no51);
+                                            intent.putExtra("no52", no52);
+                                            intent.putExtra("no53", no53);
+                                            context.startActivity(intent);
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                    mInterstitialAd = null;
+                                }
+
+                            });
+
+                        }
+
+                        @Override
+                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                            mInterstitialAd = null;
+                        }
+                    });
+        };
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -171,751 +942,8 @@ public class AdapBahk extends RecyclerView.Adapter<AdapBahk.ViewHolder> {
             loadData();
             updateViews();
 
-            MobileAds.initialize(context,
-                    "ca-app-pub-9002559574859995~9859723704");
+            createIntersitialAd();
 
-            mInterstitialAd = new InterstitialAd(context);
-            mInterstitialAd.setAdUnitId("ca-app-pub-9002559574859995/8527147460");
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            mInterstitialAd.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    // Load the next interstitial.
-
-                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                    if (editText3.getText().toString().length() == 0) {
-                        editText3.setText("11");
-                    }
-                    if (editText4.getText().toString().length() == 0) {
-                        editText4.setText("11");
-                    }
-                    if (editText5.getText().toString().length() == 0) {
-                        editText5.setText("11");
-                    }
-                    if (editText9.getText().toString().length() == 0) {
-                        editText9.setText("11");
-                    }
-                    if (editText10.getText().toString().length() == 0) {
-                        editText10.setText("11");
-                    }
-                    if (editText11.getText().toString().length() == 0) {
-                        editText11.setText("11");
-                    }
-                    if (editText15.getText().toString().length() == 0) {
-                        editText15.setText("11");
-                    }
-                    if (editText16.getText().toString().length() == 0) {
-                        editText16.setText("11");
-                    }
-                    if (editText17.getText().toString().length() == 0) {
-                        editText17.setText("11");
-                    }
-                    if (editText21.getText().toString().length() == 0) {
-                        editText21.setText("11");
-                    }
-                    if (editText22.getText().toString().length() == 0) {
-                        editText22.setText("11");
-                    }
-                    if (editText23.getText().toString().length() == 0) {
-                        editText23.setText("11");
-                    }
-                    if (editText27.getText().toString().length() == 0) {
-                        editText27.setText("11");
-                    }
-                    if (editText28.getText().toString().length() == 0) {
-                        editText28.setText("11");
-                    }
-                    if (editText29.getText().toString().length() == 0) {
-                        editText29.setText("11");
-                    }
-                    if (editText33.getText().toString().length() == 0) {
-                        editText33.setText("11");
-                    }
-                    if (editText34.getText().toString().length() == 0) {
-                        editText34.setText("11");
-                    }
-                    if (editText35.getText().toString().length() == 0) {
-                        editText35.setText("11");
-                    }
-                    if (editText39.getText().toString().length() == 0) {
-                        editText39.setText("11");
-                    }
-                    if (editText40.getText().toString().length() == 0) {
-                        editText40.setText("11");
-                    }
-                    if (editText41.getText().toString().length() == 0) {
-                        editText41.setText("11");
-                    }
-                    if (editText45.getText().toString().length() == 0) {
-                        editText45.setText("11");
-                    }
-                    if (editText46.getText().toString().length() == 0) {
-                        editText46.setText("11");
-                    }
-                    if (editText47.getText().toString().length() == 0) {
-                        editText47.setText("11");
-                    }
-                    if (editText51.getText().toString().length() == 0) {
-                        editText51.setText("11");
-                    }
-                    if (editText52.getText().toString().length() == 0) {
-                        editText52.setText("11");
-                    }
-                    if (editText53.getText().toString().length() == 0) {
-                        editText53.setText("11");
-                    }
-
-                    if (editText3.getText().toString().length() == 1 && editText3.getText().toString().contains(".")) {
-                        editText3.setText("12");
-                    }
-                    if (editText4.getText().toString().length() == 1 && editText4.getText().toString().contains(".")) {
-                        editText4.setText("12");
-                    }
-                    if (editText5.getText().toString().length() == 1 && editText5.getText().toString().contains(".")) {
-                        editText5.setText("12");
-                    }
-                    if (editText9.getText().toString().length() == 1 && editText9.getText().toString().contains(".")) {
-                        editText9.setText("12");
-                    }
-                    if (editText10.getText().toString().length() == 1 && editText10.getText().toString().contains(".")) {
-                        editText10.setText("12");
-                    }
-                    if (editText11.getText().toString().length() == 1 && editText11.getText().toString().contains(".")) {
-                        editText11.setText("12");
-                    }
-                    if (editText15.getText().toString().length() == 1 && editText15.getText().toString().contains(".")) {
-                        editText15.setText("12");
-                    }
-                    if (editText16.getText().toString().length() == 1 && editText16.getText().toString().contains(".")) {
-                        editText16.setText("12");
-                    }
-                    if (editText17.getText().toString().length() == 1 && editText17.getText().toString().contains(".")) {
-                        editText17.setText("12");
-                    }
-                    if (editText21.getText().toString().length() == 1 && editText21.getText().toString().contains(".")) {
-                        editText21.setText("12");
-                    }
-                    if (editText22.getText().toString().length() == 1 && editText22.getText().toString().contains(".")) {
-                        editText22.setText("12");
-                    }
-                    if (editText23.getText().toString().length() == 1 && editText23.getText().toString().contains(".")) {
-                        editText23.setText("12");
-                    }
-                    if (editText27.getText().toString().length() == 1 && editText27.getText().toString().contains(".")) {
-                        editText27.setText("12");
-                    }
-                    if (editText28.getText().toString().length() == 1 && editText28.getText().toString().contains(".")) {
-                        editText28.setText("12");
-                    }
-                    if (editText29.getText().toString().length() == 1 && editText29.getText().toString().contains(".")) {
-                        editText29.setText("12");
-                    }
-                    if (editText33.getText().toString().length() == 1 && editText33.getText().toString().contains(".")) {
-                        editText33.setText("12");
-                    }
-                    if (editText34.getText().toString().length() == 1 && editText34.getText().toString().contains(".")) {
-                        editText34.setText("12");
-                    }
-                    if (editText35.getText().toString().length() == 1 && editText35.getText().toString().contains(".")) {
-                        editText35.setText("12");
-                    }
-                    if (editText39.getText().toString().length() == 1 && editText39.getText().toString().contains(".")) {
-                        editText39.setText("12");
-                    }
-                    if (editText40.getText().toString().length() == 1 && editText40.getText().toString().contains(".")) {
-                        editText40.setText("12");
-                    }
-                    if (editText41.getText().toString().length() == 1 && editText41.getText().toString().contains(".")) {
-                        editText41.setText("12");
-                    }
-                    if (editText45.getText().toString().length() == 1 && editText45.getText().toString().contains(".")) {
-                        editText45.setText("12");
-                    }
-                    if (editText46.getText().toString().length() == 1 && editText46.getText().toString().contains(".")) {
-                        editText46.setText("12");
-                    }
-                    if (editText47.getText().toString().length() == 1 && editText47.getText().toString().contains(".")) {
-                        editText47.setText("12");
-                    }
-                    if (editText51.getText().toString().length() == 1 && editText51.getText().toString().contains(".")) {
-                        editText51.setText("12");
-                    }
-                    if (editText52.getText().toString().length() == 1 && editText52.getText().toString().contains(".")) {
-                        editText52.setText("12");
-                    }
-                    if (editText53.getText().toString().length() == 1 && editText53.getText().toString().contains(".")) {
-                        editText53.setText("12");
-                    }
-
-
-                    float no3 = Float.valueOf(editText3.getText().toString());
-                    float no4 = Float.valueOf(editText4.getText().toString());
-                    float no5 = Float.valueOf(editText5.getText().toString());
-
-
-                    float no9 = Float.valueOf(editText9.getText().toString());
-                    float no10 = Float.valueOf(editText10.getText().toString());
-                    float no11 = Float.valueOf(editText11.getText().toString());
-
-
-                    float no15 = Float.valueOf(editText15.getText().toString());
-                    float no16 = Float.valueOf(editText16.getText().toString());
-                    float no17 = Float.valueOf(editText17.getText().toString());
-
-
-                    float no21 = Float.valueOf(editText21.getText().toString());
-                    float no22 = Float.valueOf(editText22.getText().toString());
-                    float no23 = Float.valueOf(editText23.getText().toString());
-
-
-                    float no27 = Float.valueOf(editText27.getText().toString());
-                    float no28 = Float.valueOf(editText28.getText().toString());
-                    float no29 = Float.valueOf(editText29.getText().toString());
-
-
-                    float no33 = Float.valueOf(editText33.getText().toString());
-                    float no34 = Float.valueOf(editText34.getText().toString());
-                    float no35 = Float.valueOf(editText35.getText().toString());
-
-
-                    float no39 = Float.valueOf(editText39.getText().toString());
-                    float no40 = Float.valueOf(editText40.getText().toString());
-                    float no41 = Float.valueOf(editText41.getText().toString());
-
-
-                    float no45 = Float.valueOf(editText45.getText().toString());
-                    float no46 = Float.valueOf(editText46.getText().toString());
-                    float no47 = Float.valueOf(editText47.getText().toString());
-
-
-                    float no51 = Float.valueOf(editText51.getText().toString());
-                    float no52 = Float.valueOf(editText52.getText().toString());
-                    float no53 = Float.valueOf(editText53.getText().toString());
-
-
-                    if (no3 == 11) {
-                        editText3.setText("");
-                    }
-                    if (no4 == 11) {
-                        editText4.setText("");
-                    }
-                    if (no5 == 11) {
-                        editText5.setText("");
-                    }
-                    if (no9 == 11) {
-                        editText9.setText("");
-                    }
-                    if (no10 == 11) {
-                        editText10.setText("");
-                    }
-                    if (no11 == 11) {
-                        editText11.setText("");
-                    }
-                    if (no15 == 11) {
-                        editText15.setText("");
-                    }
-                    if (no16 == 11) {
-                        editText16.setText("");
-                    }
-                    if (no17 == 11) {
-                        editText17.setText("");
-                    }
-                    if (no21 == 11) {
-                        editText21.setText("");
-                    }
-                    if (no22 == 11) {
-                        editText22.setText("");
-                    }
-                    if (no23 == 11) {
-                        editText23.setText("");
-                    }
-                    if (no27 == 11) {
-                        editText27.setText("");
-                    }
-                    if (no28 == 11) {
-                        editText28.setText("");
-                    }
-                    if (no29 == 11) {
-                        editText29.setText("");
-                    }
-                    if (no33 == 11) {
-                        editText33.setText("");
-                    }
-                    if (no34 == 11) {
-                        editText34.setText("");
-                    }
-                    if (no35 == 11) {
-                        editText35.setText("");
-                    }
-                    if (no39 == 11) {
-                        editText39.setText("");
-                    }
-                    if (no40 == 11) {
-                        editText40.setText("");
-                    }
-                    if (no41 == 11) {
-                        editText41.setText("");
-                    }
-                    if (no45 == 11) {
-                        editText45.setText("");
-                    }
-                    if (no46 == 11) {
-                        editText46.setText("");
-                    }
-                    if (no47 == 11) {
-                        editText47.setText("");
-                    }
-                    if (no51 == 11) {
-                        editText51.setText("");
-                    }
-                    if (no52 == 11) {
-                        editText52.setText("");
-                    }
-                    if (no53 == 11) {
-                        editText53.setText("");
-                    }
-
-                    if (no3 == 12) {
-                        editText3.setText(".");
-                    }
-                    if (no4 == 12) {
-                        editText4.setText(".");
-                    }
-                    if (no5 == 12) {
-                        editText5.setText(".");
-                    }
-                    if (no9 == 12) {
-                        editText9.setText(".");
-                    }
-                    if (no10 == 12) {
-                        editText10.setText(".");
-                    }
-                    if (no11 == 12) {
-                        editText11.setText(".");
-                    }
-                    if (no15 == 12) {
-                        editText15.setText(".");
-                    }
-                    if (no16 == 12) {
-                        editText16.setText(".");
-                    }
-                    if (no17 == 12) {
-                        editText17.setText(".");
-                    }
-                    if (no21 == 12) {
-                        editText21.setText(".");
-                    }
-                    if (no22 == 12) {
-                        editText22.setText(".");
-                    }
-                    if (no23 == 12) {
-                        editText23.setText(".");
-                    }
-                    if (no27 == 12) {
-                        editText27.setText(".");
-                    }
-                    if (no28 == 12) {
-                        editText28.setText(".");
-                    }
-                    if (no29 == 12) {
-                        editText29.setText(".");
-                    }
-                    if (no33 == 12) {
-                        editText33.setText(".");
-                    }
-                    if (no34 == 12) {
-                        editText34.setText(".");
-                    }
-                    if (no35 == 12) {
-                        editText35.setText(".");
-                    }
-                    if (no39 == 12) {
-                        editText39.setText(".");
-                    }
-                    if (no40 == 12) {
-                        editText40.setText(".");
-                    }
-                    if (no41 == 12) {
-                        editText41.setText(".");
-                    }
-                    if (no45 == 12) {
-                        editText45.setText(".");
-                    }
-                    if (no46 == 12) {
-                        editText46.setText(".");
-                    }
-                    if (no47 == 12) {
-                        editText47.setText(".");
-                    }
-                    if (no51 == 12) {
-                        editText51.setText(".");
-                    }
-                    if (no52 == 12) {
-                        editText52.setText(".");
-                    }
-                    if (no53 == 12) {
-                        editText53.setText(".");
-                    }
-
-                    float a0t = (no3 + no4 + no5) / 3 * 100;
-                    int roa0t = Math.round(a0t);
-                    Float a0t2 = Float.valueOf(roa0t) / 100;
-
-                    float a0l = (no9 + no10 + no11) / 3 * 100;
-                    int roa0l = Math.round(a0l);
-                    Float a0l2 = Float.valueOf(roa0l) / 100;
-
-                    float a0h = (no15 + no16 + no17) / 3 * 100;
-                    int roa0h = Math.round(a0h);
-                    Float a0h2 = Float.valueOf(roa0h) / 100;
-
-                    float a1a = (no21 + no22 + no23) / 3 * 100;
-                    int roa1a = Math.round(a1a);
-                    Float a1a2 = Float.valueOf(roa1a) / 100;
-
-                    float c0v = (no27 + no28 + no29) / 3 * 100;
-                    int roc0v = Math.round(c0v);
-                    Float c0v2 = Float.valueOf(roc0v) / 100;
-
-                    float b0s = (no33 + no34 + no35) / 3 * 100;
-                    int rob0s = Math.round(b0s);
-                    Float b0s2 = Float.valueOf(rob0s) / 100;
-
-                    float c0su = (no39 + no40 + no41) / 3 * 100;
-                    int roc0su = Math.round(c0su);
-                    Float c0su2 = Float.valueOf(roc0su) / 100;
-
-                    float c0d = (no45 + no46 + no47) / 3 * 100;
-                    int roc0d = Math.round(c0d);
-                    Float c0d2 = Float.valueOf(roc0d) / 100;
-
-                    float c19gd = (no51 + no52 + no53) / 3 * 100;
-                    int roc19gd = Math.round(c19gd);
-                    Float c19gd2 = Float.valueOf(roc19gd) / 100;
-
-                    float a02 = (a0t2 + a0l2 + a0h2) * 100;
-                    int a01 = Math.round(a02);
-                    Float a0 = Float.valueOf(a01) / 100;
-
-                    float a12 = (a0t2 + a0l2 + a1a2) * 100;
-                    int a11 = Math.round(a12);
-                    Float a1 = Float.valueOf(a11) / 100;
-
-                    float b02 = (b0s2 + a0t2 + a0h2) * 100;
-                    int b01 = Math.round(b02);
-                    Float b0 = Float.valueOf(b01) / 100;
-
-                    float c02 = (c0v2 + c0su2 + c0d2) * 100;
-                    int c01 = Math.round(c02);
-                    Float c0 = Float.valueOf(c01) / 100;
-
-                    float c12 = (a0t2 + a0l2 + c0v2) * 100;
-                    int c11 = Math.round(c12);
-                    Float c1 = Float.valueOf(c11) / 100;
-
-                    float d12 = (c0v2 + a0t2 + a1a2) * 100;
-                    int d11 = Math.round(d12);
-                    Float d1 = Float.valueOf(d11) / 100;
-
-                    float d72 = (a0h2 + a0t2 + a1a2) * 100;
-                    int d71 = Math.round(d72);
-                    Float d7 = Float.valueOf(d71) / 100;
-
-                    float d142 = (c0v2 + c0su2 + a1a2) * 100;
-                    int d141 = Math.round(d142);
-                    Float d14 = Float.valueOf(d141) / 100;
-
-                    float d152 = (c0v2 + c0d2 + a1a2) * 100;
-                    int d151 = Math.round(d152);
-                    Float d15 = Float.valueOf(d151) / 100;
-
-                    float b82 = (b0s2 + a0t2 + a1a2) * 100;
-                    int b81  =Math.round(b82);
-                    Float b8 = Float.valueOf(b81) / 100;
-
-                    float c192 = (c0v2 + c0su2 + c19gd2) * 100;
-                    int c191 = Math.round(c192);
-                    Float c19 = Float.valueOf(c191) / 100;
-
-                    float a =3;
-
-                    if (((editText3.getText().toString().length() == 1 && editText3.getText().toString().contains(".") || editText3.getText().toString().length() == 0 || no3 > 10) || (editText4.getText().toString().length() == 1 && editText4.getText().toString().contains(".") || editText4.getText().toString().length() == 0 || no4 > 10)
-                            || (editText5.getText().toString().length() == 1 && editText5.getText().toString().contains(".") || editText5.getText().toString().length() == 0 || no5 > 10))
-                            && (editText3.getText().toString().length() > 0 || editText4.getText().toString().length() > 0 || editText5.getText().toString().length() > 0)) {
-
-                        if (editText3.getText().toString().length() == 1 && editText3.getText().toString().contains(".") || editText3.getText().toString().length() == 0 || no3 > 10) {
-                            editText3.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText4.getText().toString().length() == 1 && editText4.getText().toString().contains(".") || editText4.getText().toString().length() == 0 || no4 > 10) {
-                            editText4.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText5.getText().toString().length() == 1 && editText5.getText().toString().contains(".") || editText5.getText().toString().length() == 0 || no5 > 10) {
-                            editText5.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if (((editText9.getText().toString().length() == 1 && editText9.getText().toString().contains(".") || editText9.getText().toString().length() == 0 || no9 > 10) || (editText10.getText().toString().length() == 1 && editText10.getText().toString().contains(".") || editText10.getText().toString().length() == 0 || no10 > 10)
-                            || (editText11.getText().toString().length() == 1 && editText11.getText().toString().contains(".") || editText11.getText().toString().length() == 0 || no11 > 10))
-                            && (editText9.getText().toString().length() > 0 || editText10.getText().toString().length() > 0 || editText11.getText().toString().length() > 0)) {
-
-                        if (editText9.getText().toString().length() == 1 && editText9.getText().toString().contains(".") || editText9.getText().toString().length() == 0 || no9 > 10) {
-                            editText9.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText10.getText().toString().length() == 1 && editText10.getText().toString().contains(".") || editText10.getText().toString().length() == 0 || no10 > 10) {
-                            editText10.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText11.getText().toString().length() == 1 && editText11.getText().toString().contains(".") || editText11.getText().toString().length() == 0 || no11 > 10) {
-                            editText11.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if ((
-                            (editText15.getText().toString().length() == 1 && editText15.getText().toString().contains(".") || editText15.getText().toString().length() == 0 || no15 > 10) || (editText16.getText().toString().length() == 1 && editText16.getText().toString().contains(".") || editText16.getText().toString().length() == 0 || no16 > 10)
-                                    || (editText17.getText().toString().length() == 1 && editText17.getText().toString().contains(".") || editText17.getText().toString().length() == 0 || no17 > 10))
-                            && (editText15.getText().toString().length() > 0 || editText16.getText().toString().length() > 0 || editText17.getText().toString().length() > 0)) {
-
-                        if (editText15.getText().toString().length() == 1 && editText15.getText().toString().contains(".") || editText15.getText().toString().length() == 0 || no15 > 10) {
-                            editText15.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText16.getText().toString().length() == 1 && editText16.getText().toString().contains(".") || editText16.getText().toString().length() == 0 || no16 > 10) {
-                            editText16.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText17.getText().toString().length() == 1 && editText17.getText().toString().contains(".") || editText17.getText().toString().length() == 0 || no17 > 10) {
-                            editText17.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if ((
-                            (editText21.getText().toString().length() == 1 && editText21.getText().toString().contains(".") || editText21.getText().toString().length() == 0 || no21 > 10) || (editText22.getText().toString().length() == 1 && editText22.getText().toString().contains(".") || editText22.getText().toString().length() == 0 || no22 > 10)
-                                    || (editText23.getText().toString().length() == 1 && editText23.getText().toString().contains(".") || editText23.getText().toString().length() == 0 || no23 > 10))
-                            && (editText21.getText().toString().length() > 0 || editText22.getText().toString().length() > 0 || editText23.getText().toString().length() > 0)) {
-
-                        if (editText21.getText().toString().length() == 1 && editText21.getText().toString().contains(".") || editText21.getText().toString().length() == 0 || no21 > 10) {
-                            editText21.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText22.getText().toString().length() == 1 && editText22.getText().toString().contains(".") || editText22.getText().toString().length() == 0 || no22 > 10) {
-                            editText22.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText23.getText().toString().length() == 1 && editText23.getText().toString().contains(".") || editText23.getText().toString().length() == 0 || no23 > 10) {
-                            editText23.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if ((
-                            (editText27.getText().toString().length() == 1 && editText27.getText().toString().contains(".") || editText27.getText().toString().length() == 0 || no27 > 10) || (editText28.getText().toString().length() == 1 && editText28.getText().toString().contains(".") || editText28.getText().toString().length() == 0 || no28 > 10)
-                                    || (editText29.getText().toString().length() == 1 && editText29.getText().toString().contains(".") || editText29.getText().toString().length() == 0 || no29 > 10))
-                            && (editText27.getText().toString().length() > 0 || editText28.getText().toString().length() > 0 || editText29.getText().toString().length() > 0)) {
-
-                        if (editText27.getText().toString().length() == 1 && editText27.getText().toString().contains(".") || editText27.getText().toString().length() == 0 || no27 > 10) {
-                            editText27.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText28.getText().toString().length() == 1 && editText28.getText().toString().contains(".") || editText28.getText().toString().length() == 0 || no28 > 10) {
-                            editText28.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText29.getText().toString().length() == 1 && editText29.getText().toString().contains(".") || editText29.getText().toString().length() == 0 || no29 > 10) {
-                            editText29.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if (((editText33.getText().toString().length() == 1 && editText33.getText().toString().contains(".") || editText33.getText().toString().length() == 0 || no33 > 10) || (editText34.getText().toString().length() == 1 && editText34.getText().toString().contains(".") || editText34.getText().toString().length() == 0 || no34 > 10)
-                            || (editText35.getText().toString().length() == 1 && editText35.getText().toString().contains(".") || editText35.getText().toString().length() == 0 || no35 > 10))
-                            && (editText33.getText().toString().length() > 0 || editText34.getText().toString().length() > 0 || editText35.getText().toString().length() > 0)) {
-
-                        if (editText33.getText().toString().length() == 1 && editText33.getText().toString().contains(".") || editText33.getText().toString().length() == 0 || no33 > 10) {
-                            editText33.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText34.getText().toString().length() == 1 && editText34.getText().toString().contains(".") || editText34.getText().toString().length() == 0 || no34 > 10) {
-                            editText34.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText35.getText().toString().length() == 1 && editText35.getText().toString().contains(".") || editText35.getText().toString().length() == 0 || no35 > 10) {
-                            editText35.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if (((editText39.getText().toString().length() == 1 && editText39.getText().toString().contains(".") || editText39.getText().toString().length() == 0 || no39 > 10) || (editText40.getText().toString().length() == 1 && editText40.getText().toString().contains(".") || editText40.getText().toString().length() == 0 || no40 > 10)
-                            || (editText41.getText().toString().length() == 1 && editText41.getText().toString().contains(".") || editText41.getText().toString().length() == 0 || no41 > 10))
-                            && (editText39.getText().toString().length() > 0 || editText40.getText().toString().length() > 0 || editText41.getText().toString().length() > 0)) {
-
-                        if (editText39.getText().toString().length() == 1 && editText39.getText().toString().contains(".") || editText39.getText().toString().length() == 0 || no39 > 10) {
-                            editText39.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText40.getText().toString().length() == 1 && editText40.getText().toString().contains(".") || editText40.getText().toString().length() == 0 || no40 > 10) {
-                            editText40.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText41.getText().toString().length() == 1 && editText41.getText().toString().contains(".") || editText41.getText().toString().length() == 0 || no41 > 10) {
-                            editText41.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if (((editText45.getText().toString().length() == 1 && editText45.getText().toString().contains(".") || editText45.getText().toString().length() == 0 || no45 > 10) || (editText46.getText().toString().length() == 1 && editText46.getText().toString().contains(".") || editText46.getText().toString().length() == 0 || no46 > 10)
-                            || (editText47.getText().toString().length() == 1 && editText47.getText().toString().contains(".") || editText47.getText().toString().length() == 0 || no47 > 10))
-                            && (editText45.getText().toString().length() > 0 || editText46.getText().toString().length() > 0 || editText47.getText().toString().length() > 0)) {
-
-                        if (editText45.getText().toString().length() == 1 && editText45.getText().toString().contains(".") || editText45.getText().toString().length() == 0 || no45 > 10) {
-                            editText45.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText46.getText().toString().length() == 1 && editText46.getText().toString().contains(".") || editText46.getText().toString().length() == 0 || no46 > 10) {
-                            editText46.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText47.getText().toString().length() == 1 && editText47.getText().toString().contains(".") || editText47.getText().toString().length() == 0 || no47 > 10) {
-                            editText47.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if (((editText51.getText().toString().length() == 1 && editText51.getText().toString().contains(".") || editText51.getText().toString().length() == 0 || no51 > 10) || (editText52.getText().toString().length() == 1 && editText52.getText().toString().contains(".") || editText52.getText().toString().length() == 0 || no52 > 10)
-                            || (editText53.getText().toString().length() == 1 && editText53.getText().toString().contains(".") || editText53.getText().toString().length() == 0 || no53 > 10))
-                            && (editText51.getText().toString().length() > 0 || editText52.getText().toString().length() > 0 || editText53.getText().toString().length() > 0)) {
-
-                        if (editText51.getText().toString().length() == 1 && editText51.getText().toString().contains(".") || editText51.getText().toString().length() == 0 || no51 > 10) {
-                            editText51.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText52.getText().toString().length() == 1 && editText52.getText().toString().contains(".") || editText52.getText().toString().length() == 0 || no52 > 10) {
-                            editText52.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-                        if (editText53.getText().toString().length() == 1 && editText53.getText().toString().contains(".") || editText53.getText().toString().length() == 0 || no53 > 10) {
-                            editText53.setBackgroundResource(R.drawable.edittext_background1);
-                        }
-
-                    }
-
-                    if (((editText3.getText().toString().length() == 0 && editText4.getText().toString().length() == 0 && editText5.getText().toString().length() == 0) || (no3 <= 10 && no4 <= 10 && no5 <= 10))
-                            && (editText9.getText().toString().length() == 0 && editText10.getText().toString().length() == 0 && editText11.getText().toString().length() == 0) || (no9 <= 10 && no10 <= 10 && no11 <= 10)
-                            && ((editText15.getText().toString().length() == 0 && editText16.getText().toString().length() == 0 && editText17.getText().toString().length() == 0) || (no15 <= 10 && no16 <= 10 && no17 <= 10))
-                            && ((editText21.getText().toString().length() == 0 && editText22.getText().toString().length() == 0 && editText23.getText().toString().length() == 0) || (no21 <= 10 && no22 <= 10 && no23 <= 10))
-                            && ((editText27.getText().toString().length() == 0 && editText28.getText().toString().length() == 0 && editText29.getText().toString().length() == 0) || (no27 <= 10 && no28 <= 10 && no29 <= 10))
-                            && ((editText33.getText().toString().length() == 0 && editText34.getText().toString().length() == 0 && editText35.getText().toString().length() == 0) || (no33 <= 10 && no34 <= 10 && no35 <= 10))
-                            && ((editText39.getText().toString().length() == 0 && editText40.getText().toString().length() == 0 && editText41.getText().toString().length() == 0) || (no39 <= 10 && no40 <= 10 && no41 <= 10))
-                            && ((editText45.getText().toString().length() == 0 && editText46.getText().toString().length() == 0 && editText47.getText().toString().length() == 0) || (no45 <= 10 && no46 <= 10 && no47 <= 10))
-                            && ((editText51.getText().toString().length() == 0 && editText52.getText().toString().length() == 0 && editText53.getText().toString().length() == 0) || (no51 <= 10 && no52 <= 10 && no53 <= 10))
-
-                    ) {
-                        if(n==1) {
-                            Intent intent = new Intent(context, ketqua.class);
-                            intent.putExtra("a0", a0);
-                            intent.putExtra("a1", a1);
-                            intent.putExtra("b0", b0);
-                            intent.putExtra("c0", c0);
-                            intent.putExtra("c1", c1);
-                            intent.putExtra("d1", d1);
-                            intent.putExtra("d7", d7);
-                            intent.putExtra("d15", d15);
-                            intent.putExtra("d14", d14);
-                            intent.putExtra("b8", b8);
-                            intent.putExtra("c19", c19);
-
-                            intent.putExtra("no3", no3);
-                            intent.putExtra("no4", no4);
-                            intent.putExtra("no5", no5);
-
-
-                            intent.putExtra("no9", no9);
-                            intent.putExtra("no10", no10);
-                            intent.putExtra("no11", no11);
-
-
-                            intent.putExtra("no15", no15);
-                            intent.putExtra("no16", no16);
-                            intent.putExtra("no17", no17);
-
-
-                            intent.putExtra("no21", no21);
-                            intent.putExtra("no22", no22);
-                            intent.putExtra("no23", no23);
-
-
-                            intent.putExtra("no27", no27);
-                            intent.putExtra("no28", no28);
-                            intent.putExtra("no29", no29);
-
-
-                            intent.putExtra("no33", no33);
-                            intent.putExtra("no34", no34);
-                            intent.putExtra("no35", no35);
-
-
-                            intent.putExtra("no39", no39);
-                            intent.putExtra("no40", no40);
-                            intent.putExtra("no41", no41);
-
-
-                            intent.putExtra("no45", no45);
-                            intent.putExtra("no46", no46);
-                            intent.putExtra("no47", no47);
-
-                            intent.putExtra("no51", no51);
-                            intent.putExtra("no52", no52);
-                            intent.putExtra("no53", no53);
-                            context.startActivity(intent);
-                        }
-                        if(n==2) {
-                            Intent intent = new Intent(context, activity_mon.class);
-                            intent.putExtra("a0", a0t2);
-                            intent.putExtra("a1", a0l2);
-                            intent.putExtra("b0", a0h2);
-                            intent.putExtra("c0", a1a2);
-                            intent.putExtra("c1", c0v2);
-                            intent.putExtra("d1", b0s2);
-                            intent.putExtra("d7", c0su2);
-                            intent.putExtra("d14", c0d2);
-                            intent.putExtra("d15", c19gd2);
-                            intent.putExtra("tieucot",a);
-
-                            intent.putExtra("no3", no3);
-                            intent.putExtra("no4", no4);
-                            intent.putExtra("no5", no5);
-
-
-                            intent.putExtra("no9", no9);
-                            intent.putExtra("no10", no10);
-                            intent.putExtra("no11", no11);
-
-
-                            intent.putExtra("no15", no15);
-                            intent.putExtra("no16", no16);
-                            intent.putExtra("no17", no17);
-
-
-                            intent.putExtra("no21", no21);
-                            intent.putExtra("no22", no22);
-                            intent.putExtra("no23", no23);
-
-
-                            intent.putExtra("no27", no27);
-                            intent.putExtra("no28", no28);
-                            intent.putExtra("no29", no29);
-
-
-                            intent.putExtra("no33", no33);
-                            intent.putExtra("no34", no34);
-                            intent.putExtra("no35", no35);
-
-
-                            intent.putExtra("no39", no39);
-                            intent.putExtra("no40", no40);
-                            intent.putExtra("no41", no41);
-
-
-                            intent.putExtra("no45", no45);
-                            intent.putExtra("no46", no46);
-                            intent.putExtra("no47", no47);
-
-                            intent.putExtra("no51", no51);
-                            intent.putExtra("no52", no52);
-                            intent.putExtra("no53", no53);
-                            context.startActivity(intent);
-                        }
-                    }
-                    //editText43.setText("123");
-                }
-            });
             savedata.setOnClickListener((new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -1573,9 +1601,8 @@ public class AdapBahk extends RecyclerView.Adapter<AdapBahk.ViewHolder> {
                             && ((editText51.getText().toString().length() == 0 && editText52.getText().toString().length() == 0 && editText53.getText().toString().length() == 0) || (no51 <= 10 && no52 <= 10 && no53 <= 10))
 
                     ) {
-                        if (mInterstitialAd.isLoaded()) {
-                            mInterstitialAd.show();
-                        }
+                        if (mInterstitialAd != null) mInterstitialAd.show((Activity) context);
+
                         else {
                             Intent intent = new Intent(v.getContext(), ketqua.class);
                             intent.putExtra("a0", a0);
@@ -2205,9 +2232,7 @@ public class AdapBahk extends RecyclerView.Adapter<AdapBahk.ViewHolder> {
                             && ((editText51.getText().toString().length() == 0 && editText52.getText().toString().length() == 0 && editText53.getText().toString().length() == 0) || (no51 <= 10 && no52 <= 10 && no53 <= 10))
 
                     ) {
-                        if (mInterstitialAd.isLoaded()) {
-                            mInterstitialAd.show();
-                        }
+                        if (mInterstitialAd != null) mInterstitialAd.show((Activity) context);
                         else {
                             Intent intent = new Intent(v.getContext(), activity_mon.class);
                             intent.putExtra("a0", a0t2);
